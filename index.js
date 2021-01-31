@@ -77,8 +77,8 @@ Promise.all([mandelbrot]).then(async function ([
       draw(context, canvasWidth, canvasHight, wasmResult);
       const drawEndTime = Date.now();
       const elapsed = generateEndTime - generateStartTime;
-      console.log(`\tgenerate:wasm\tgenerate_elapsed:${elapsed}[ms]`);
-      console.log(`\tdraw: js\tdraw_elapsed:${drawEndTime - drawStartTime}[ms]`);
+      console.log(`\tgenerate:wasm\tgenerate_elapsed: ${elapsed}[ms]`);
+      console.log(`\tdraw: js\tdraw_elapsed: ${drawEndTime - drawStartTime}[ms]`);
     }
     let jsResult = null;
     {
@@ -92,12 +92,12 @@ Promise.all([mandelbrot]).then(async function ([
       jsResult = logic.generateMandelbrotSet(canvasWidth, canvasHight, X_MIN, X_MAX, Y_MIN, Y_MAX, MAX_ITER);
       const generateEndTime = Date.now();
       const elapsed = generateEndTime - generateStartTime;
-      console.log(`generate:js\tgenerate_elapsed:${elapsed}[ms]`);
+      console.log(`generate:js\tgenerate_elapsed: ${elapsed}[ms]`);
 
       const drawStartTime = Date.now();
       draw(context, canvasWidth, canvasHight, jsResult);
       const drawEndTime = Date.now();
-      console.log(`draw: js\tdraw_elapsed:${drawEndTime - drawStartTime}[ms]`);
+      console.log(`draw: js\tdraw_elapsed: ${drawEndTime - drawStartTime}[ms]`);
     }
     {
       let isSame = true;
